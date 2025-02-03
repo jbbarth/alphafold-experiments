@@ -23,5 +23,15 @@ module AlphafoldExperiments
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # Async jobs
+    config.active_job.queue_adapter = :delayed
+
+    # Papertrail: allow deserializing yaml
+    # https://stackoverflow.com/a/76134963
+    config.active_record.yaml_column_permitted_classes = [
+      Symbol, Date, Time, ActiveSupport::TimeWithZone, ActiveSupport::TimeZone,
+      BigDecimal, ActiveSupport::HashWithIndifferentAccess,
+    ]
   end
 end

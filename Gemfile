@@ -10,9 +10,9 @@ gem "sqlite3", ">= 2.1"
 gem "puma", ">= 5.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
-# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
+# Hotwire"s SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
-# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
+# Hotwire"s modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
@@ -40,15 +40,60 @@ gem "thruster", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+# Nice structs
+gem "hashie"
+
+# background tasks
+gem "delayed"
+
+# tags
+gem "gutentag", "~> 2.6"
+
+# annotate models with db structure
+gem "annotate"
+
+# ascii colors
+gem "colorize"
+
+# icons
+gem "font-awesome-rails"
+
+# htmx interactions
+gem "rails-htmx", "~> 0.1.3"
+
+# Backup previous versions of objects
+gem "paper_trail"
+
+# Logs
+gem "lograge"
+
+# Profiling
+gem "rack-mini-profiler"
+
+# Use jquery as the JavaScript library
+gem "jquery-rails"
+
+# Styles
+gem "tailwindcss-ruby", "~> 4.0"
+gem "tailwindcss-rails", "~> 4.0"
+
+# Force stringio version
+gem "stringio", ">= 3.1.2"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
+  # Pry is good
+  gem "pry"
+  gem "pry-rails"
+  gem "pry-rescue"
+  gem "pry-remote", "~> 0.1.8"
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
 
-  # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
-  gem "rubocop-rails-omakase", require: false
+  # Better tests
+  gem "rspec-rails", "~> 6.1"
 end
 
 group :development do
@@ -61,3 +106,13 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+# MAYBE LATER:
+
+# Components
+#gem "view_component"
+
+# scrapping
+#gem "nokogiri"
+#gem "httparty"
+#gem "typhoeus"

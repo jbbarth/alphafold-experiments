@@ -13,6 +13,13 @@
     <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
     <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
 
+    <link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:700,400">
+    <script src="https://www.unpkg.com/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.5" integrity="sha384-xcuj3WpfgjlKF+FXhSQFQ0ZNr39ln+hwjN3npfM9VBnUskLolQAcN80McRIVOPuO" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
@@ -20,9 +27,17 @@
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="font-sans bg-orange-50" hx-headers='{"X-CSRF-Token": "<%= form_authenticity_token %>"}'>
+    <div id=container class="w-full">
+      <div id=topbar class="pb-1">
+        <%= render "shared/topbar" %>
+      </div>
+      <div class="px-3 pt-1">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
