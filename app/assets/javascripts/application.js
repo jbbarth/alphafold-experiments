@@ -15,6 +15,9 @@
 //= require_tree .
 
 $(function() {
+  // Disappear flashes
+  $(".flash-message").show().delay(3000).hide(200);
+
   // Focus on the input when the page loads
   document.addEventListener('htmx:load', function (event) {
     const firstInput = event.target.querySelector('*[autofocus] input[type="text"]:first-of-type')
@@ -31,7 +34,7 @@ $(function() {
     } catch {
       // nothing
     }
-    $("#notice").html(error).show().delay(3000).hide(200);
+    $("#notice").html(error).show().delay(5000).hide(200);
   });
 
   // Submit form on Cmd+Enter

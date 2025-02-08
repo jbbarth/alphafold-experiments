@@ -1,10 +1,13 @@
 <%= tag.div class: "topbar bg-pink-600 text-white px-3 drop-shadow-md flex" do %>
   <div class="flex flex-1 grow font-bold py-3">
-    <%= link_to_section "Root", root_path %>
+    <%= link_to_section "Home", root_path %>
   </div>
   <div class="flex grow py-3">
   </div>
   <div class="flex flex-none py-3">
-    Bar
+    <span class="mr-4 italic">
+      <%= current_user.email %>
+    </span>
+    <%= button_to "Logout", sign_out_path, method: :delete, data: { turbo: false }, class: "cursor-pointer" %>
   </div>
 <% end %>
