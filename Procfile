@@ -1,2 +1,2 @@
-web: bundle exec rails server -p 3210
+web: bundle exec rails server -p $PORT
 worker: bundle exec rails delayed:work
