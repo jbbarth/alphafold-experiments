@@ -1,1 +1,35 @@
-Welcome page
+<div class="flex gap-x-2">
+
+  <div class="flex flex-col grow border border-zinc-400 shadow-sm w-1/3 rounded-xs">
+    <div class="flex px-3 py-1 bg-zinc-100 uppercase font-semibold text-zinc-700 border-b-1 border-zinc-400 h-8">
+      Welcome
+    </div>
+    <div class="grow bg-white px-3 py-1">
+      <p>
+        This application aims at easing the usage of <a href="https://github.com/google-deepmind/alphafold3/">Deepmind's Alphafold3</a>, at limited costs.
+        <br />
+        The application is in limited Alpha for now. Only users listed on the right have access to the application.
+      </p>
+      <p>
+        The application contains easter eggs for certain users 😉
+      </p>
+    </div>
+  </div>
+
+  <div class="flex flex-col grow border border-zinc-400 shadow-sm w-1/3 rounded-xs">
+    <div class="flex px-3 py-1 bg-zinc-100 uppercase font-semibold text-zinc-700 border-b-1 border-zinc-400 h-8">
+      Users (last 10)
+    </div>
+    <div class="grow bg-white px-3 py-1">
+      <ul class="list-disc ml-3">
+        <% User.all.order("created_at desc").limit(10).reverse.each do |user| %>
+          <li><%= user.email %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="flex grow w-1/3">
+  </div>
+
+</div>
