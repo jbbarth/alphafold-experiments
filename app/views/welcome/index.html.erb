@@ -23,7 +23,15 @@
     <div class="grow bg-white px-3 py-1">
       <ul class="list-disc ml-3">
         <% User.all.order("created_at desc").limit(10).reverse.each do |user| %>
-          <li><%= user.email %></li>
+          <li>
+            <% if user.name %>
+              <%= user.name %>
+              &lt;<%= user.email %>&gt;
+            <% else %>
+              <%= user.email %>
+              <span class="text-pink-800">(never logged in)</span>
+            <% end %>
+          </li>
         <% end %>
       </ul>
     </div>
