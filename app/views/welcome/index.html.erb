@@ -25,8 +25,8 @@
         <% User.all.order("created_at desc").limit(10).reverse.each do |user| %>
           <li>
             <% if user.name %>
-              <%= user.name %>
-              &lt;<%= user.email %>&gt;
+              <%= user.email %>
+              (<%= user.name %>)
             <% else %>
               <%= user.email %>
               <span class="text-amber-600">(never logged in)</span>
